@@ -1,0 +1,35 @@
+//
+// Prefix header for all source files of the 'Prismatic Reader' target in the 'Prismatic Reader' project
+//
+
+#import <Availability.h>
+#import <CoreData/CoreData.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <QuartzCore/QuartzCore.h>
+    #import <CoreData/CoreData.h>
+#endif
+
+#define DROPBOX_API_KEY @"YOUR KEY HERE"
+#define DROPBOX_API_SECRET @"YOUR KEY HERE"
+
+typedef void (^BMBlockVoid)(void);
+
+#define TITLE_IMAGE_PADDING 4
+#define TITLE_IMAGE_SPACING 16
+#define MAX_IMG_HEIGHT 200
+#define MIXER_DIVISOR 4
+
+#define NULL_CHECK(elem) (elem && ![elem isKindOfClass:[NSNull class]])
+
+#define SaveAndDLogOnErrorNoErrorDef(ErrorString) \
+  error = nil;                                    \
+  if(![moc save:&error]) {                        \
+    NSLog(@"ErrorString %@", error.userInfo);      \
+  }                                               \
